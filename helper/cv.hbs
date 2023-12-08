@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+.form {
+	color: black;
+	 width: 100%;
+}
+ .header {
+	 background: #fff;
+	 box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+	 display: flex;
+	 justify-content: center;
+}
+ .header button {
+	 background: rgba(51, 173, 255, 0.5);
+	 border: 1px solid rgba(0, 0, 0, 0.2);
+	 width: 158px;
+	 height: 104px;
+	 border: none;
+	 color: #000;
+	 font-weight: 600;
+	 font-size: 19px;
+	 line-height: 22px;
+}
+ .form h3 {
+	 font-weight: 600;
+	 font-size: 17px;
+	 line-height: 13px;
+}
+ .form p {
+	 text-align: center;
+	 font-weight: 600;
+	 font-size: 20px;
+	 line-height: 22px;
+}
+ .form .name {
+	 margin: 2rem 0;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .cv {
+	 width: 70%;
+	 margin: 0 auto;
+	 display: flex;
+	 background: #fff;
+	 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+}
+ .cv .info1 {
+	 padding: 50px 50px 50px 30px;
+	 width: 50%;
+}
+ .cv .info1 h2 {
+	 color: #ff944d;
+	 font-weight: 700;
+	 font-size: 21px;
+	 line-height: 19px;
+	 margin-bottom: 2rem;
+	 margin-top: 5rem;
+}
+ .cv .info1 .experience p, .cv .info1 .activities p {
+	 font-weight: 500;
+	 font-size: 13px;
+	 line-height: 15px;
+	 word-break: normal;
+	 word-spacing: normal;
+	 text-align: justify;
+	 color: rgba(0, 0, 0, 0.8);
+}
+ .cv .info1 .first .name-user {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .cv .info1 .experience .exprience-detail .date {
+	 width: auto;
+}
+ .cv .info1 .experience .exprience-detail .item {
+	 margin: 30px 0;
+}
+ .cv .first p {
+	 margin-top: 10px;
+	 padding: 0;
+}
+ .cv .info1 .img {
+	 background: #fff;
+	 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+	 width: 150px;
+	 height: 150px;
+	 margin: 0 auto;
+	 border-radius: 50%;
+	 display: flex;
+	 justify-content: center;
+	 text-align: center;
+}
+ .cv .info2 {
+	 padding: 40px 20px 40px 50px;
+	 flex: 1;
+	 background: rgba(255, 194, 153, 0.3);
+}
+ .info2 p {
+	 text-align: left;
+	 font-weight: 500;
+	 font-size: 15px;
+	 line-height: 16px;
+}
+ .info2 label {
+	 text-align: left;
+	 font-weight: 600;
+	 font-size: 16px;
+	 line-height: 16px;
+}
+ .info2 .own-info {
+	 margin-bottom: 7rem;
+}
+ .info2 .education h2, .info2 .skills h2 {
+	 margin-top: 3rem;
+	 font-weight: 700;
+	 font-size: 21px;
+	 line-height: 19px;
+}
+ .info2 .education h3, .info2 .skills h3 {
+	 margin-left: -1rem;
+	 font-weight: 600;
+	 font-size: 17px;
+	 line-height: 19px;
+}
+ .info2 .education p, .info2 .skills p {
+	 margin-left: -1rem;
+	 font-weight: 500;
+	 font-size: 13px;
+	 line-height: 15px;
+	 word-break: normal;
+	 word-spacing: normal;
+	 text-align: justify;
+	 color: rgba(0, 0, 0, 0.8);
+}
+	.info2 .own-info p {
+		color: rgba(0, 0, 0, 0.8);
+	}
+ 
+	</style>
+</head>
+
+<body>
+	<div class="form">
+		<div class="cv">
+			<div class='info1'>
+				<div class="first">
+					<div class="img">
+						<img src={{cv.img}} alt="..."/>
+					</div>
+					<p>Name</p>
+					<div class='name-user'>
+						<div>
+							<p>{{cv.nameUser}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="experience">      
+					<h2>
+						Experience
+					</h2>
+					<div class="exprience-detail">
+						{{#each cv.experience}}
+							<div class="item">
+								<p>{{this.startDate}} - {{this.endDate}}</p>
+								<h3>{{this.position}} - {{this.company}}</h3>
+								<p>{{this.description}}</p>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+				<div class="activities">      
+					<h2>
+						Activities
+					</h2>
+					<div class='activities-detail'>
+						{{#each cv.activities}}
+							<div class='item'>
+								<p>{{this.startDate}} - {{this.endDate}}</p>
+								<h3>{{this.position}} - {{this.organization}}</h3>
+								<p>{{this.description}}</p>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+			<div class='info2'>
+				<div class='own-info'>
+					<label>Date of birth:</label>
+					<p>{{cv.birthday}}</p>
+					<label>Phone Number:</label>
+					<p>{{cv.phone}}</p>
+					<label>Email:</label>
+					<p>{{cv.email}}</p>
+					<label>Address:</label>
+					<p>{{cv.address}}</p>
+					<label>Sex:</label>
+					<p>{{cv.sex}}</p>
+				</div>
+				<div class="education">      
+					<h2>
+						Education
+					</h2>
+					<div class='education-detail'>
+						{{#each cv.education}}
+							<div class='item' key={item.id}>
+								<p>{{this.startDate}} - {{this.endDate}}</p>
+								<h3>{{this.position}} - {{this.school}}</h3>
+								<p>{{this.description}}</p>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+				<div class="skills">      
+					<h2>
+						Skills
+					</h2>
+					<div class='skills-detail'>
+						{{#each cv.skills}}
+							<div class='item' key={item.id}>
+								<h3>{{this.skill}}</h3>
+								<p>{{this.description}}</p>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
